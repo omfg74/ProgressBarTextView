@@ -10,19 +10,20 @@ class ProgressTextView : TextView {
     var progress: Float = 0f
 //    val underlineHeight:Float =  30f
 
-    constructor(context: Context?) : this(context,null)
+    constructor(context: Context?) : this(context, null)
 
 
-    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs,0)
+    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context,
         attrs,
         defStyleAttr
-    ){
-        val attrib = context?.obtainStyledAttributes(attrs,R.styleable.ProgressTextView,defStyleAttr,0)
-        color = attrib?.getColor(R.styleable.ProgressTextView_progressColor,0)?:0
-        progress = attrib?.getFloat(R.styleable.ProgressTextView_progressValue,0f)?:0f
-        if(progress>1f)progress=1f
+    ) {
+        val attrib =
+            context?.obtainStyledAttributes(attrs, R.styleable.ProgressTextView, defStyleAttr, 0)
+        color = attrib?.getColor(R.styleable.ProgressTextView_progressColor, 0) ?: 0
+        progress = attrib?.getFloat(R.styleable.ProgressTextView_progressValue, 0f) ?: 0f
+        if (progress > 1f) progress = 1f
     }
 
 //
@@ -42,7 +43,7 @@ class ProgressTextView : TextView {
 
     override fun onDraw(canvas: Canvas?) {
 
-        if (progress>1f)progress=1f
+        if (progress > 1f) progress = 1f
         val width = width
         val tvheight = height
         val paint = Paint()
@@ -53,10 +54,7 @@ class ProgressTextView : TextView {
     }
 
 
-
-
-
-    private fun getLineTop():Float{
+    private fun getLineTop(): Float {
         return (this@ProgressTextView.textSize * 2) / 3
     }
 }
